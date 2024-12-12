@@ -19,6 +19,7 @@ df = capital_df.drop(capital_df.index[0:26])
 btc_price_df = pd.json_normalize(data, 'transactions')
 btc_price_df['price'] = btc_price_df['price'].astype(int)
 price_df = btc_price_df['price']
+price_df = price_df.drop(price_df.index[0:52])
 
 # Add Percent Increase Column for Account Value
 df_pct_increase = ((df - df.iloc[0]) / df.iloc[0]) * 100
