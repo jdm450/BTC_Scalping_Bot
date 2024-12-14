@@ -20,15 +20,18 @@ df_pct_increase = ((df - df.iloc[0]) / df.iloc[0]) * 100
 
 # Plot data
 plt.style.use('dark_background')
-ax = df_pct_increase.plot(kind='line', figsize=(14,8), color='red')
+plt.figure(figsize=(14, 8))
+plt.plot(df, label='Scalping Bot Account Value', color='red')
 plt.title('BTC Scalping Bot', fontsize=16)
 plt.xlabel('Starts: 12/10/2024 1:00 PM', fontsize=14)
-plt.ylabel('Percent Increase', fontsize=14)
+plt.ylabel('Account Value', fontsize=14)  # Changed to match the data being plotted
+
+# Customize y-axis
+ax = plt.gca()  # Get current axis
+ax.set_ylim(bottom=20000)  # Set the y-axis to start at 20,000
+ax.yaxis.set_major_locator(MultipleLocator(1000))  # Set major ticks every 2,000
+
 plt.grid(color='dimgray')
-
-plt.xticks([])
-
-ax.yaxis.set_major_formatter(mtick.PercentFormatter())
-ax.yaxis.set_major_locator(MultipleLocator(2.5))
-
+plt.xticks([])  # Remove x-axis ticks if not needed
+plt.legend()
 plt.show()

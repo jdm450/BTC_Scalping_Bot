@@ -41,6 +41,6 @@ plt.legend()
 plt.xticks([])
 
 ax.yaxis.set_major_formatter(mtick.PercentFormatter())
-ax.yaxis.set_major_locator(MultipleLocator(2.5))
+ax.yaxis.set_major_locator(MultipleLocator(2))
 
 plt.show()
